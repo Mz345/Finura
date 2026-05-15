@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="src/css/pages/add-category.css">
+<title>Finura Add Category</title>
+</head>
+
+<body>
+  <main id="main-content">
+    <!-- Back button with accessible label and keyboard focus support -->
+    <button class="back-btn" onclick="history.back()" aria-label="Go back to previous page">← Back</button>
+
+    <section class="center" aria-labelledby="addCategoryHeading">
+      <h2 id="addCategoryHeading">Add Category</h2>
+      <p class="subtitle">Create a new income or expense category</p>
+    </section>
+
+    <section class="form-box" aria-labelledby="formTitle">
+      <h3 id="formTitle">Category Details</h3>
+      <p>Enter the details for your new category below.</p>
+
+      <form id="categoryForm" novalidate aria-describedby="formInstructions">
+        <div id="formInstructions" class="sr-only">
+          All fields marked as required must be filled out before submitting the form.
+        </div>
+
+        <!-- Category Name -->
+        <div class="form-field">
+          <label for="catName" class="required">Category Name</label>
+          <input 
+            type="text" 
+            id="catName" 
+            name="catName" 
+            required 
+            placeholder="e.g., Food, Rent, Salary"
+            aria-describedby="catNameError"
+            aria-required="true"
+          />
+          <div id="catNameError" class="error-message" role="alert" aria-live="polite">
+            Category name is required.
+          </div>
+        </div>
+
+        <!-- Category Type -->
+        <div class="form-field">
+          <label for="catType" class="required">Type</label>
+          <select 
+            id="catType" 
+            name="catType" 
+            required 
+            onchange="toggleBudgetLimit()"
+            aria-describedby="catTypeError"
+            aria-required="true"
+          >
+            <option value="">Select type</option>
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+          </select>
+          <div id="catTypeError" class="error-message" role="alert" aria-live="polite">
+            Please select a category type.
+          </div>
+        </div>
+
+        <!-- Budget Limit (visible only for expenses) -->
+        <div id="budgetLimitContainer" style="display: none;" class="form-field">
+          <label for="budgetLimit" class="required">Budget Limit (₹)</label>
+          <input 
+            type="number" 
+            id="budgetLimit" 
+            name="budgetLimit" 
+            min="0" 
+            step="1" 
+            placeholder="Enter limit amount (e.g., 500)"
+            aria-describedby="budgetLimitError"
+          />
+          <div id="budgetLimitError" class="error-message" role="alert" aria-live="polite">
+            Budget limit is required for expense categories.
+          </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-group">
+          <button type="submit" aria-describedby="submitDescription">Add Category</button>
+          <button type="reset">Reset Form</button>
+          <div id="submitDescription" class="sr-only">
+            Click to save the new category
+          </div>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script type="module" src="src/js/pages/add-category.js"></script>
+  <script type="module" src="src/js/main.js"></script>
+</body>
+</html>

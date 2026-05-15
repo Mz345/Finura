@@ -1,3 +1,4 @@
+Head
 
 # Finura – MongoDB Edition
 
@@ -139,5 +140,9 @@ The server serves both the **REST API** and the **static frontend** from `http:/
 ## Charts
 Charts use **Chart.js via CDN** (loaded in HTML). No bundler needed — the project works as plain static files served by the Express backend.
 
+HEAD
+
 # Finura
 Finura is a personal finance management web application that helps users track income, expenses, and balance through an interactive dashboard. It uses charts and transaction history for financial analysis and is built using HTML, CSS, JavaScript, Chart.js, and MongoDB for efficient data management.
+
+e3bddbb (Initial commit)

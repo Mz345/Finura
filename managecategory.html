@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Categories - Finura</title>
+    <link rel="stylesheet" href="/src/css/pages/manage-categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/src/css/main.css">
+</head>
+<body>
+    <main-navbar></main-navbar>
+    
+    <main class="manage-container">
+        <header class="page-header">
+            <div class="header-text">
+                <h1>Manage Categories</h1>
+                <p>Edit or delete your existing income and expense categories</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-primary" id="add-category-btn">
+                    <i class="fa-solid fa-plus"></i> Add New Category
+                </button>
+            </div>
+        </header>
+
+        <section class="categories-list-card">
+            <div id="categories-list">
+                <!-- Category items will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Edit Category Modal -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Edit Category</h2>
+                <button id="close-modal-btn" class="close-btn" aria-label="Close modal">&times;</button>
+            </header>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+
+                <div class="form-group">
+                    <label for="edit-name">Category Name</label>
+                    <input type="text" id="edit-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-type">Category Type</label>
+                    <select id="edit-type" required>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form-group" id="edit-budget-container" style="display: none;">
+                    <label for="edit-budget">Budget (₹)</label>
+                    <input type="number" id="edit-budget" min="0" step="1">
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" id="cancel-edit-btn" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/src/js/components/MainNavbar.js"></script>
+    <script type="module" src="/src/js/pages/manage-categories.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

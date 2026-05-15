@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transactions - Finura</title>
+    <link rel="stylesheet" href="/src/css/pages/transaction.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+
+<body>
+    <main-navbar></main-navbar>
+    <main class="transactions-container">
+        <!-- Header -->
+        <header class="page-header">
+            <div class="header-text">
+                <h1>Transactions</h1>
+                <p>View and manage all your financial transactions</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-secondary" id="add-income-btn"><i class="fa-solid fa-plus"></i> Add Income</button>
+                <button class="btn-primary" id="add-expense-btn"><i class="fa-solid fa-plus"></i> Add Expense</button>
+            </div>
+        </header>
+
+        <!-- Filter & Search Card -->
+        <section class="filter-card">
+            <div class="card-header">
+                <i class="fa-solid fa-filter"></i>
+                <h2>Filter & Search</h2>
+            </div>
+            <p class="card-subtitle">Filter transactions by type, category, or search by description</p>
+            <form id="filter-form" class="filter-grid">
+                <div class="form-group">
+                    <label for="search-input">Search</label>
+                    <div class="input-with-icon">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="search" id="search-input" placeholder="Search transactions...">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="type-filter">Type</label>
+                    <select id="type-filter">
+                        <option value="all">All Types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="category-filter">Category</label>
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <!-- Categories will be dynamically inserted here -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date-range-filter">Date Range</label>
+                    <select id="date-range-filter">
+                        <option value="all">All Time</option>
+                        <option value="this-month">This Month</option>
+                        <option value="last-month">Last Month</option>
+                        <option value="this-year">This Year</option>
+                    </select>
+                </div>
+            </form>
+        </section>
+
+        <!-- Transaction History Card -->
+        <section class="history-card">
+            <div class="card-header">
+                <h2>Transaction History</h2>
+            </div>
+            <p class="card-subtitle" id="transaction-count">Showing 0 of 0 transactions</p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactions-table-body">
+                        <!-- Rows will be dynamically inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <main-footer></main-footer>
+
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2>Edit Transaction</h2>
+                <button id="close-modal-btn" class="close-btn" aria-label="Close modal">&times;</button>
+            </header>
+            <form id="edit-form">
+                <!-- Hidden inputs to store the ID and type of the transaction being edited -->
+                <input type="hidden" id="edit-id">
+                <input type="hidden" id="edit-type">
+
+                <div class="form-group">
+                    <label for="edit-amount">Amount</label>
+                    <input type="number" id="edit-amount" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-description">Description</label>
+                    <input type="text" id="edit-description" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-category">Category</label>
+                    <select id="edit-category" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-date">Date</label>
+                    <input type="date" id="edit-date" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                    <button type="button" id="cancel-edit-btn" class="btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="module" src="/src/js/components/MainNavbar.js"></script>
+    <script type="module" src="src/js/main.js"></script>
+        <script type="module" src="src/js/pages/transaction.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="src/css/pages/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+
+<body>
+        <main-navbar></main-navbar>
+    <div class="dashboard-header">
+        <h1 class="Dashboard-header-text">
+            Dashboard
+        </h1>
+
+        <p class="dashboard-header-subpara">
+            Welcome back! Here's your financial overview.
+        </p>
+    </div>
+
+
+    <div class="quick-insight-main-box">
+        <div class="quick-insight-box" id="total-income">
+            <div class="card-header">
+                <h4 class="card-header-text">Total Income</h4>
+                <i class="fa-solid fa-arrow-trend-up" style="color: #8b8c8e;"></i>
+            </div>
+
+            <div class="card-amount" id="total-income-box-insight">
+                ₹50,000
+            </div>
+        </div>
+
+        <div class="quick-insight-box" id="total-expense">
+            <div class="card-header">
+                <h4 class="card-header-text">Total Expenses</h4>
+                <i class="fa-solid fa-arrow-trend-down" style="color: #8b8c8e;"></i>
+            </div>
+
+            <div class="card-amount" id="total-expense-box-insight">
+                ₹30,000
+            </div>
+        </div>
+        <div class="quick-insight-box" id="blance-left">
+            <div class="card-header">
+                <h4 class="card-header-text">Balance left</h4>
+                <i class="fa-solid fa-wallet" style="color: #8b8c8e;"></i>
+            </div>
+
+            <div class="card-amount" id="balance-left-box-insight">
+                ₹20,000
+            </div>
+        </div>
+    </div>
+
+
+    <div class="chart-main-box">
+        <div class="chart-box" id="expense-chart-box">
+            <doughnut-chart id="expenseCategoryChart" chart-title="Expense Categories"
+                chart-subtitle="Breakdown of your spending by category this month">
+            </doughnut-chart>
+        </div>
+
+        <div class="chart-box" id="expense-line-chart-box">
+            <line-chart id="expenseTrendChart" chart-title="Expense Trend"
+                chart-subtitle="Your spending over the last 6 months">
+            </line-chart>
+        </div>
+    </div>
+
+
+    <div class="recent-transactions-card">
+        <div class="transactions-header">
+            <div class="header-text">
+                <h3>Recent Transactions</h3>
+                <p>Your latest financial activity</p>
+            </div>
+            <a href="#" class="view-all-btn">View All</a>
+        </div>
+
+        <div class="transactions-list" id="recentTransactionsList">
+            <!-- Transaction items will be dynamically inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <main-footer></main-footer>
+        <script type="module" src="/src/js/components/MainNavbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="src/js/pages/dashboard.js"></script>
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+
+</html>

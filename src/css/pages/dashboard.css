@@ -1,0 +1,255 @@
+body{
+    gap: 60px;
+}
+
+/* --- Dashboard Header --- */
+.dashboard-header {
+    width: 100%;              /* --- CHANGED --- */
+    max-width: 1200px;
+    padding: 16px;            /* --- CHANGED: Reduced padding for better mobile feel */
+    box-sizing: border-box; /* Ensures padding doesn't break layout */
+}
+
+.dashboard-header h1 {
+    font-size: 2.0rem;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+}
+
+.dashboard-header p {
+    font-size: 1rem; /* --- CHANGED: Fixed typo "1.rem" --- */
+    color: #6B7280;
+    margin-top: 8px;
+}
+
+/* --- Quick Insight Cards --- */
+.quick-insight-main-box {
+    /* --- CHANGED: Switched to CSS Grid for perfect responsive columns --- */
+    display: grid;
+    /* This creates 1 column on mobile, 2 on tablet, and 3 on desktop */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    /* --- REMOVED --- */
+    /* margin-bottom, flex-wrap, justify-content, align-items */
+}
+
+.quick-insight-box {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s ease;
+    /* --- REMOVED: width, max-width (Grid handles this now) --- */
+}
+
+.quick-insight-box .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+#total-income {
+    border-left: 4px solid #10B981;
+}
+
+#total-expense {
+    border-left: 4px solid #EF4444;
+}
+
+#blance-left {
+    border-left: 4px solid #3B82F6;
+}
+
+.quick-insight-box:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+}
+
+/* --- Chart Section --- */
+.chart-main-box {
+    display: flex; 
+    gap: 24px;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    align-items: stretch; 
+
+}
+
+/* Each chart box */
+.chart-box {
+    flex: 1 1 450px;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Make the custom chart element fill its parent */
+.chart-box doughnut-chart,
+.chart-box line-chart {
+    flex: 1;
+    height: 100%;
+}
+
+/* --- Recent Transactions Section --- */
+.recent-transactions-card {
+    background-color: #FFFFFF;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0px 8px 24px rgba(17, 24, 39, 0.05);
+    border: 1px solid #E5E7EB;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box; 
+    margin-top: 60px;
+}
+
+.no-transactions {
+    text-align: center;
+    color: #6B7280;
+    padding: 20px 0;
+}
+
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.transactions-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.transactions-header p {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0;
+}
+
+.view-all-btn {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    text-decoration: none;
+    background-color: #F3F4F6;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.view-all-btn:hover {
+    background-color: #E5E7EB;
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 8px; /* --- CHANGED: Reduced horizontal padding for mobile */
+    border-radius: 12px;
+    transition: background-color 0.2s;
+}
+
+.transaction-item:hover {
+    background-color: #F9FAFB;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
+    font-size: 18px;
+    flex-shrink: 0; /* Prevents icon from shrinking on mobile */
+}
+
+.transaction-details {
+    flex-grow: 1;
+    /* --- CHANGED: Added for mobile text wrapping --- */
+    min-width: 0; 
+}
+
+.transaction-details .description {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    /* --- CHANGED: Prevents long text from breaking layout --- */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.transaction-details .date {
+    font-size: 14px;
+    color: #6B7280;
+}
+
+.transaction-amount {
+    text-align: right;
+    padding-left: 12px; /* --- CHANGED: Added padding --- */
+}
+
+.transaction-amount .amount {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.transaction-amount .type {
+    font-size: 14px;
+    color: #6B7280;
+    text-transform: capitalize;
+}
+
+/* --- Type-specific styles --- */
+.transaction-item.expense .transaction-icon {
+    background-color: #FEE2E2;
+    color: #EF4444;
+}
+
+.transaction-item.expense .amount {
+    color: #EF4444;
+}
+
+.transaction-item.income .transaction-icon {
+    background-color: #D1FAE5;
+    color: #10B981;
+}
+
+.transaction-item.income .amount {
+    color: #10B981;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 640px) {
+    body {
+        padding: 12px; 
+    }
+
+    .dashboard-header {
+        padding: 8px;
+    }
+    
+    .chart-box {
+        min-height: 400px; 
+    }
+}

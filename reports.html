@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Reports - Finura</title>
+    <link rel="stylesheet" href="src/css/pages/report.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css"> </head>
+<body>
+        <main-navbar></main-navbar>
+    <main class="reports-container">
+        <header class="page-header">
+            <div class="header-text">
+                <h1>Financial Reports</h1>
+                <p>Analyze your financial trends and patterns</p>
+            </div>
+            <!-- <div class="header-actions">
+                <button class="btn-secondary"><i class="fa-solid fa-download"></i> Export CSV</button>
+                <button class="btn-primary"><i class="fa-solid fa-file-pdf"></i> Export PDF</button>
+            </div> -->
+        </header>
+
+        <section class="filters-section">
+            <div class="filter-group">
+                <label for="report-year"><i class="fa-solid fa-calendar-days"></i> Year</label>
+                <select id="report-year"></select>
+            </div>
+            <div class="filter-group">
+                <label for="report-month"><i class="fa-solid fa-calendar-week"></i> Month</label>
+                <select id="report-month"></select>
+            </div>
+            </div>
+        </section>
+
+        <section class="summary-grid">
+            <div class="summary-card income">
+                <p class="card-title">Total Income</p>
+                <h2 class="card-amount" id="summary-income">₹0.00</h2>
+                <p class="card-change" id="summary-income-change">+0% vs last period</p>
+            </div>
+            <div class="summary-card expenses">
+                <p class="card-title">Total Expenses</p>
+                <h2 class="card-amount" id="summary-expenses">₹0.00</h2>
+                <p class="card-change" id="summary-expenses-change">+0% vs last period</p>
+            </div>
+            <div class="summary-card savings">
+                <p class="card-title">Net Savings</p>
+                <h2 class="card-amount" id="summary-savings">₹0.00</h2>
+                <p class="card-change" id="summary-savings-change">+0% vs last period</p>
+            </div>
+            <div class="summary-card rate">
+                <p class="card-title">Savings Rate</p>
+                <h2 class="card-amount" id="summary-rate">0%</h2>
+                <p class="card-status" id="summary-rate-status">Calculating...</p>
+            </div>
+        </section>
+
+        <section class="charts-grid">
+            <div class="chart-card expense-breakdown">
+                <header class="chart-header">
+                    <h3>Expense Breakdown</h3>
+                    <p>Spending by category</p>
+                </header>
+                <div class="chart-body">
+                    <div class="doughnut-container">
+                        <canvas id="expenseBreakdownChart"></canvas>
+                    </div>
+                    <div id="expenseBreakdownLegend" class="chart-legend-custom"></div>
+                </div>
+            </div>
+
+             <div class="chart-card weekly-spending">
+                 <header class="chart-header">
+                     <h3>Weekly Spending Pattern</h3>
+                     <p>Average spending by week of the month</p>
+                 </header>
+                 <div class="chart-body">
+                     <canvas id="weeklySpendingChart"></canvas>
+                 </div>
+             </div>
+
+             <div class="chart-card income-sources">
+                 <header class="chart-header">
+                     <h3>Income Sources</h3>
+                     <p>Breakdown of income by source</p>
+                 </header>
+                 <div id="incomeSourcesBars" class="chart-body bars-container">
+                     </div>
+             </div>
+        </section>
+
+    </main>
+
+    <main-footer></main-footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="module" src="/src/js/components/MainNavbar.js"></script>
+    <script type="module" src="src/js/pages/report.js"></script>
+    <script type="module" src="src/js/main.js"></script> 
+</body>
+</html>

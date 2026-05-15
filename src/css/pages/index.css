@@ -1,0 +1,689 @@
+
+
+
+/* =========================
+     Reset & Base Styles
+  ========================== */
+  
+  /* Reset all margins and paddings to ensure consistent rendering across browsers */
+  * { 
+    margin:0; 
+    padding:0; 
+    /* Include padding and border in element's total width and height */
+    box-sizing:border-box; 
+  }
+  
+  /* Enable smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Base body styles with font, colors, and layout */
+  body { 
+    font-family: 'Poppins', sans-serif; 
+    background:#fff; /* White background */
+    color:#333; /* Dark gray text color */
+    line-height:1.6; /* Improve readability with increased line height */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* Main content container */
+  main { 
+    width: 100%; 
+    margin: 0 auto; 
+  }
+
+  /* =========================
+     Skip to Content Link (Accessibility)
+  ========================== */
+  
+  /* Hidden by default, appears when focused for keyboard navigation */
+  .skip-link {
+    position: absolute;
+    top: -40px; /* Position off-screen initially */
+    left: 6px;
+    background: #222222; /* Dark background */
+    color: white;
+    padding: 8px;
+    z-index: 1001; /* Ensure it appears above other elements */
+    text-decoration: none;
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* Show the skip link when it receives focus */
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* =========================
+     Focus Management
+  ========================== */
+  
+  /* Custom focus indicator for all interactive elements */
+  button:focus,
+  .faq-question:focus,
+  .feature-box:focus,
+  .step:focus,
+  .testimonial:focus {
+    outline: 3px solid #0066cc; /* High contrast focus indicator */
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Additional visual indicator */
+  }
+  
+  
+
+  /* =========================
+     Hero Section (Top Banner)
+  ========================== */
+  .hero { 
+    padding: 12rem 5% 8rem; /* Generous padding for visual impact */
+    text-align:center; 
+    /* Dark gradient background */
+    background: linear-gradient(135deg, #222222 0%, #444444 100%);
+    color: #fff; /* White text for contrast */
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decorative background pattern */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* SVG pattern as background */
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxMDAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9IiMyMjIyMjIiLz48cGF0aCBkPSJNMTAwMCAwSDBWMTAwMEwxMDAwIDBaIiBmaWxsPSIjNDQ0NDQ0IiBmaWxsLW9wYWNpdHk9IjAuMSIvPjwvc3ZnPg==');
+    background-size: cover;
+    opacity: 0.1; /* Subtle pattern */
+  }
+  
+  /* Container for hero content */
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1; /* Ensure content appears above background pattern */
+  }
+  
+  /* Main hero heading */
+  .hero h2 { 
+    font-size:3.5rem; 
+    margin-bottom:1.5rem; 
+    font-weight:700; 
+    line-height: 1.2;
+    animation: fadeInUp 1s ease; /* Entrance animation */
+  }
+  
+  /* Hero description text */
+  .hero p { 
+    font-size:1.3rem; 
+    margin-bottom:2.5rem; 
+    opacity: 0.9; /* Slightly transparent for visual hierarchy */
+    animation: fadeInUp 1s ease 0.2s both; /* Staggered entrance animation */
+  }
+  
+  /* Container for call-to-action buttons */
+  .hero .btn-group { 
+    animation: fadeInUp 1s ease 0.4s both; /* Staggered entrance animation */
+  }
+  
+  /* Primary button styles */
+  .hero .btn-group button { 
+    padding:1rem 2.5rem; 
+    border:none; 
+    background:#fff; /* White background */
+    color:#222222; /* Dark text */
+    border-radius:50px; /* Fully rounded corners */
+    margin:0 0.5rem; 
+    cursor:pointer; 
+    font-size:1.1rem; 
+    font-weight: 600;
+    transition:0.3s; /* Smooth hover effects */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+  }
+  
+  /* Button hover and focus states */
+  .hero .btn-group button:hover,
+  .hero .btn-group button:focus { 
+    background:#f5f5f5; /* Light gray on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Enhanced shadow */
+    outline: none; /* Remove default focus outline */
+  }
+  
+  /* Secondary button variant */
+  .hero .btn-group button.secondary { 
+    background:transparent; 
+    color:#fff; /* White text */
+    border: 2px solid #fff; /* White border */
+  }
+  
+  /* Secondary button hover states */
+  .hero .btn-group button.secondary:hover,
+  .hero .btn-group button.secondary:focus { 
+    background:#fff; /* White background on hover */
+    color:#222222; /* Dark text on hover */
+  }
+  
+  /* Container for hero image */
+  .hero-image {
+    margin-top: 4rem;
+    animation: float 6s ease-in-out infinite; /* Floating animation */
+  }
+  
+  /* Hero image styling */
+  .hero-image img {
+    max-width: 800px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2); /* Prominent shadow */
+  }
+
+  /* =========================
+     Features Section
+  ========================== */
+  .features { 
+    padding: 6rem 5%; /* Generous padding */
+    background: #fff; /* White background */
+  }
+  
+  /* Section header styling */
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 4rem; /* Center with bottom margin */
+  }
+  
+  /* Section heading */
+  .section-header h2 {
+    font-size: 2.5rem;
+    color: #111111; /* Very dark gray */
+    margin-bottom: 1rem;
+  }
+  
+  /* Section description */
+  .section-header p {
+    font-size: 1.1rem;
+    color: #666; /* Medium gray */
+  }
+  
+  /* Grid layout for feature boxes */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Individual feature box */
+  .feature-box { 
+    background: #fff; /* White background */
+    border-radius: 16px; /* Rounded corners */
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.4s ease; /* Smooth transitions */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+    border: 1px solid #e0e0e0; /* Light border */
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(20px); /* Initial position for animation */
+    cursor: pointer; /* Indicate interactivity */
+  }
+  
+  /* Visible state for scroll animation */
+  .feature-box.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Hover and focus states */
+  .feature-box:hover,
+  .feature-box:focus,
+  .feature-box:focus-within { 
+    transform: translateY(-10px); /* Lift effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Enhanced shadow */
+  }
+  
+  /* Icon container */
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    background: #f5f5f5; /* Light gray background */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: #222222; /* Dark icon color */
+    font-size: 2rem;
+    transition: all 0.3s ease; /* Smooth transitions */
+  }
+  
+  /* Icon hover states */
+  .feature-box:hover .feature-icon,
+  .feature-box:focus .feature-icon,
+  .feature-box:focus-within .feature-icon {
+    background: #222222; /* Dark background on hover */
+    color: #fff; /* White icon on hover */
+    transform: scale(1.1); /* Slight scale effect */
+  }
+  
+  /* Feature title */
+  .feature-box h3 { 
+    font-size:1.5rem; 
+    color:#111111; /* Very dark gray */
+    margin-bottom:1rem; 
+  }
+  
+  /* Feature description */
+  .feature-box p { 
+    font-size:1rem; 
+    color:#666; /* Medium gray */
+  }
+
+  /* =========================
+     Stats Section
+  ========================== */
+  .stats {
+    padding: 6rem 5%;
+    /* Dark gradient background */
+    background: linear-gradient(135deg, #111111 0%, #222222 100%);
+    color: #fff; /* White text */
+    text-align: center;
+  }
+  
+  /* Grid layout for statistics */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* Individual stat item */
+  .stat-item {
+    padding: 2rem;
+  }
+  
+  /* Statistic number */
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  /* Statistic label */
+  .stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9; /* Slightly transparent */
+  }
+
+  /* =========================
+     How It Works Section
+  ========================== */
+  .how-it-works {
+    padding: 6rem 5%;
+    background: #f5f5f5; /* Light gray background */
+  }
+  
+  /* Container for steps */
+  .steps {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Individual step */
+  .step {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    background: #fff; /* White background */
+    border-radius: 16px; /* Rounded corners */
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+    transition: all 0.3s ease; /* Smooth transitions */
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(20px); /* Initial position for animation */
+    cursor: pointer; /* Indicate interactivity */
+  }
+  
+  /* Visible state for scroll animation */
+  .step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Hover and focus states */
+  .step:hover,
+  .step:focus,
+  .step:focus-within {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Enhanced shadow */
+  }
+  
+  /* Step number indicator */
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background: #222222; /* Dark background */
+    color: #fff; /* White text */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+  }
+  
+  /* Step title */
+  .step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #111111; /* Very dark gray */
+  }
+  
+  /* Step description */
+  .step p {
+    color: #666; /* Medium gray */
+  }
+
+  /* =========================
+     Testimonials Section
+  ========================== */
+  .testimonials {
+    padding: 6rem 5%;
+    background: #fff; /* White background */
+  }
+  
+  /* Grid layout for testimonials */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Individual testimonial */
+  .testimonial {
+    background: #fff; /* White background */
+    border-radius: 16px; /* Rounded corners */
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+    border: 1px solid #e0e0e0; /* Light border */
+    transition: all 0.3s ease; /* Smooth transitions */
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(20px); /* Initial position for animation */
+    cursor: pointer; /* Indicate interactivity */
+  }
+  
+  /* Visible state for scroll animation */
+  .testimonial.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Hover and focus states */
+  .testimonial:hover,
+  .testimonial:focus,
+  .testimonial:focus-within {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Enhanced shadow */
+  }
+  
+  /* Testimonial text */
+  .testimonial-text {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: #333; /* Dark gray */
+  }
+  
+  /* Testimonial author information */
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Author avatar */
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Circular shape */
+    background: #f5f5f5; /* Light gray background */
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222222; /* Dark text */
+    font-weight: 700;
+  }
+  
+  /* Author name */
+  .author-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  /* Author title/description */
+  .author-info p {
+    font-size: 0.9rem;
+    color: #666; /* Medium gray */
+  }
+
+  /* =========================
+     FAQ Section
+  ========================== */
+  .faq {
+    padding: 6rem 5%;
+    background: #fff; /* White background */
+  }
+  
+  /* FAQ container */
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Individual FAQ item */
+  .faq-item {
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden; /* Contain rounded corners */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+    border: 1px solid #e0e0e0; /* Light border */
+  }
+  
+  /* FAQ question button */
+  .faq-question {
+    padding: 1.5rem;
+    background: #fff; /* White background */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    transition: all 0.3s ease; /* Smooth transitions */
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  /* FAQ question hover and focus states */
+  .faq-question:hover,
+  .faq-question:focus {
+    background: #f5f5f5; /* Light gray on hover */
+    outline: none; /* Remove default focus outline */
+  }
+  
+  /* FAQ toggle icon */
+  .faq-question i {
+    transition: transform 0.3s ease; /* Smooth rotation */
+  }
+  
+  /* FAQ answer container */
+  .faq-answer {
+    padding: 0 1.5rem;
+    max-height: 0; /* Initially collapsed */
+    overflow: hidden;
+    transition: all 0.3s ease; /* Smooth expansion */
+    background: #f5f5f5; /* Light gray background */
+  }
+  
+  /* Active FAQ item styles */
+  .faq-item.active .faq-question {
+    background: #222222; /* Dark background */
+    color: #fff; /* White text */
+  }
+  
+  /* Rotate icon when active */
+  .faq-item.active .faq-question i {
+    transform: rotate(180deg);
+  }
+  
+  /* Expand answer when active */
+  .faq-item.active .faq-answer {
+    padding: 1.5rem;
+    max-height: 500px; /* Allow space for content */
+  }
+
+  /* =========================
+     CTA Section (Call to Action)
+  ========================== */
+  .cta { 
+    padding: 6rem 5%;
+    text-align:center; 
+    /* Dark gradient background */
+    background: linear-gradient(135deg, #222222 0%, #444444 100%);
+    color: #fff; /* White text */
+  }
+  
+  /* CTA heading */
+  .cta h3 { 
+    font-size:2.5rem; 
+    margin-bottom:1.5rem; 
+    font-weight:700; 
+  }
+  
+  /* CTA description */
+  .cta p { 
+    font-size:1.2rem; 
+    margin-bottom:2.5rem; 
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9; /* Slightly transparent */
+  }
+  
+  /* CTA button */
+  .cta button { 
+    background:#fff; /* White background */
+    color:#222222; /* Dark text */
+    padding:1.2rem 3rem; 
+    border:none; 
+    border-radius:50px; /* Fully rounded corners */
+    cursor:pointer; 
+    font-size:1.1rem; 
+    font-weight: 600;
+    transition:0.3s; /* Smooth transitions */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Subtle shadow */
+  }
+  
+  /* CTA button hover and focus states */
+  .cta button:hover,
+  .cta button:focus { 
+    background:#f5f5f5; /* Light gray on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Enhanced shadow */
+    outline: none; /* Remove default focus outline */
+  }
+
+  /* =========================
+     Animations
+  ========================== */
+  
+  /* Fade in from bottom animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Floating animation for hero image */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  /* =========================
+     Responsive Design
+  ========================== */
+  
+  /* Tablet and smaller screens */
+  @media(max-width: 768px){
+    /* Hero section adjustments */
+    .hero h2 { 
+      font-size:2.5rem; /* Smaller heading */
+    }
+    
+    .hero p { 
+      font-size:1.1rem; /* Smaller text */
+    }
+    
+    /* Stack buttons vertically on smaller screens */
+    .hero .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .hero .btn-group button {
+      margin: 0; /* Remove horizontal margin */
+    }
+    
+    /* Smaller section headings */
+    .section-header h2 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Mobile screens */
+  @media(max-width: 480px){
+    /* Further reduce hero text size */
+    .hero h2 { 
+      font-size:2rem; 
+    }
+    
+    .hero p { 
+      font-size:1rem; 
+    }
+    
+    /* Single column layouts for features and testimonials */
+    .features-grid,
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+  }

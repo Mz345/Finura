@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/css/pages/add-income.css">
+    <title>Add Income - Finura</title>
+</head>
+<body>
+    <div class="container" role="main">
+        <header class="header">
+            <button type="button" class="back-button" aria-label="Go back" onclick="history.back()">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Back</span>
+            </button>
+            <div class="header-text">
+                <h1>Add Income</h1>
+                <p>Record a new income transaction</p>
+            </div>
+        </header>
+
+        <div class="form-content">
+            <h2 class="section-title">Income Details</h2>
+            <p class="section-subtitle">Enter the details of your income transaction</p>
+
+            <form id="incomeForm" novalidate>
+                <div class="form-group">
+                    <label for="amount">Amount <span class="required" aria-label="required">*</span></label>
+                    <div class="amount-input-wrapper">
+                        <input type="text" id="amount" name="amount" class="form-control amount-input" placeholder="0.00" required aria-required="true" aria-describedby="amount-help amount-error" aria-invalid="false" inputmode="decimal">
+                    </div>
+                    <span id="amount-help" class="sr-only">Enter amount in decimal format, e.g., 1000.50</span>
+                    <span id="amount-error" class="error-message" role="alert" aria-live="assertive"></span>
+                </div>
+
+                <div class="form-group">
+                     <label for="description">Description <span class="required" aria-label="required">*</span></label>
+                     <input type="text" id="description" name="description" class="form-control" placeholder="e.g., Monthly Salary, Freelance Project" required aria-required="true" aria-describedby="description-error" aria-invalid="false">
+                     <span id="description-error" class="error-message" role="alert" aria-live="assertive"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category <span class="required" aria-label="required">*</span></label>
+                    <select id="category" name="category" class="form-control" required aria-required="true" aria-describedby="category-error" aria-invalid="false">
+                        <option value="">Loading categories...</option>
+                        </select>
+                    <span id="category-error" class="error-message" role="alert" aria-live="assertive"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date <span class="required" aria-label="required">*</span></label>
+                    <input type="date" id="date" name="date" class="form-control" value="" required aria-required="true" aria-describedby="date-help date-error" aria-invalid="false" max="">
+                    <span id="date-help" class="sr-only">Select income date. Date cannot be in the future.</span>
+                    <span id="date-error" class="error-message" role="alert" aria-live="assertive"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes (Optional)</label>
+                    <textarea id="notes" name="notes" class="form-control" placeholder="Add any additional notes about this income..." aria-describedby="notes-help"></textarea>
+                    <span id="notes-help" class="sr-only">Add any additional information</span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submitBtn" disabled aria-describedby="submit-help">Add Income</button>
+                    <button type="reset" class="btn btn-secondary" aria-label="Reset form">Reset</button>
+                </div>
+                <span id="submit-help" class="sr-only">Fill all required fields to enable submission</span>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="src/js/pages/add-income.js"></script>
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>

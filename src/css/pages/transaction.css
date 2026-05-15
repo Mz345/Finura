@@ -1,0 +1,404 @@
+/* src/css/pages/transactions.css */
+body {
+    background-color: #F9FAFB;
+    font-family: 'Inter', sans-serif;
+    color: #111827;
+    margin: 0;
+}
+
+.transactions-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    
+    /* --- CHANGED: This is the main fix for responsiveness --- */
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* --- Header --- */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.page-header p {
+    font-size: 1rem;
+    color: #6B7280;
+    margin: 4px 0 0 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #111827;
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    background-color: #FFFFFF;
+    color: #111827;
+    border-color: #E5E7EB;
+}
+
+/* --- Card Base Styles --- */
+.filter-card,
+.history-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-subtitle {
+    font-size: 14px;
+    color: #6B7280;
+    margin: 0;
+}
+
+/* --- Filter Card --- */
+.filter-card .card-subtitle {
+    margin-bottom: 24px;
+}
+
+.filter-grid {
+    display: grid;
+    /* This auto-fit rule is already responsive, which is great */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+}
+
+.input-with-icon input {
+    padding-left: 36px;
+}
+
+/* --- History Card & Table --- */
+.history-card .card-subtitle {
+    margin-bottom: 16px;
+}
+
+.table-responsive {
+    overflow-x: auto; /* This correctly handles wide tables on small screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+    vertical-align: middle;
+    /* --- CHANGED: Prevents text from breaking into multiple lines too early --- */
+    white-space: nowrap;
+}
+
+thead {
+    border-bottom: 1px solid #E5E7EB;
+}
+
+th {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+tbody tr {
+    border-bottom: 1px solid #F3F4F6;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: #F9FAFB;
+}
+
+/* Table Cell Styles */
+.description-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+
+.icon-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevents icon from squishing */
+}
+
+.type-tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 99px;
+    text-transform: capitalize;
+}
+
+.amount {
+    font-weight: 600;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 16px;
+    color: #9CA3AF;
+}
+
+.actions-cell i {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.actions-cell i:hover {
+    color: #111827;
+}
+
+/* --- Type-specific colors --- */
+.income .icon-circle {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.income .type-tag {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.income .amount {
+    color: #10B981;
+}
+
+.expense .icon-circle {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.expense .type-tag {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.expense .amount {
+    color: #EF4444;
+}
+
+.no-transactions-row td {
+    text-align: center;
+    color: #6B7280;
+    padding: 48px 0;
+}
+
+
+/* --- !! NEW: Responsive Adjustments !! --- */
+
+@media (max-width: 768px) {
+    .transactions-container {
+        padding: 16px; /* Less padding on smaller screens */
+        gap: 24px;
+    }
+    
+    .filter-grid {
+        /* On tablets, max 2 columns looks better */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    th, td {
+        padding: 10px 12px; /* Tighter padding for table cells */
+    }
+}
+
+@media (max-width: 640px) {
+    .page-header {
+        /* Stack header content on mobile */
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header-actions {
+        /* Make buttons fill width on mobile */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background: #FFFFFF;
+    padding: 24px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    color: #9CA3AF;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #111827;
+}
+
+/* Re-use form-group styles from the main page */
+#edit-form .form-group {
+    margin-bottom: 16px;
+}
+#edit-form label {
+     font-size: 14px;
+     font-weight: 500;
+     color: #374151;
+     margin-bottom: 8px;
+     display: block;
+}
+#edit-form input,
+#edit-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    justify-content: flex-end;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Overview - Finura</title>
+    <link rel="stylesheet" href="src/css/pages/budget.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+    <!-- Navbar (custom component) -->
+    <main-navbar></main-navbar>
+
+    <main class="budget-container">
+
+        <!-- Header -->
+        <header class="budget-header">
+            <div class="header-text">
+                <h1>Budget Overview</h1>
+                <p>Track your spending against your monthly budget</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn-secondary" id="manage-category-btn" aria-label="Manage Budget Categories">
+                    <i class="fa-solid fa-sliders" aria-hidden="true"></i> Manage Category
+                </button>
+                <button class="btn-primary" id="add-category-btn" aria-label="Add a New Budget Category">
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i> Add Category
+                </button>
+            </div>
+        </header>
+
+        <!-- Alerts Section -->
+        <section id="alerts-container" class="alerts-section" aria-live="polite" aria-atomic="true">
+            <!-- Dynamic alerts for budget overspending or notifications -->
+        </section>
+
+        <!-- Summary Cards Section -->
+        <section class="summary-grid" role="region" aria-label="Budget Summary">
+            <div class="summary-card" id="total-budget">
+                <p class="card-title">Total Budget</p>
+                <h2 class="card-amount" aria-label="Total Budget Amount">₹0.00</h2>
+                <p class="card-subtitle">Monthly allocation</p>
+            </div>
+            <div class="summary-card" id="total-spent">
+                <p class="card-title">Total Spent</p>
+                <h2 class="card-amount" aria-label="Total Spent Amount">₹0.00</h2>
+                <p class="card-subtitle">0% of budget</p>
+            </div>
+            <div class="summary-card" id="remaining">
+                <p class="card-title">Remaining</p>
+                <h2 class="card-amount" aria-label="Remaining Budget Amount">₹0.00</h2>
+                <p class="card-subtitle">Available to spend</p>
+            </div>
+            <div class="summary-card" id="budget-health">
+                <p class="card-title">Budget Health</p>
+                <div class="health-status" aria-label="Budget Health Status">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    <span>Calculating...</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Budget Categories List -->
+        <section class="categories-card" role="region" aria-label="Budget Categories">
+            <header class="categories-header">
+                <h2>Budget Categories</h2>
+                <p>Track your spending progress across different categories</p>
+            </header>
+            <ul id="budget-categories-list" class="categories-list">
+                <!-- Category items dynamically inserted as <li> for semantic structure -->
+            </ul>
+        </section>
+
+        <!-- Budget Tips Section -->
+        <section class="tips-card" role="region" aria-label="Budgeting Tips">
+            <h2>Budget Tips</h2>
+            <div class="tips-grid">
+                <article class="tip-item">
+                    <h3>Review Weekly</h3>
+                    <p>Check your budget progress weekly to catch overspending early.</p>
+                </article>
+                <article class="tip-item">
+                    <h3>Set Realistic Goals</h3>
+                    <p>Base your budget on actual spending patterns rather than ideal scenarios.</p>
+                </article>
+                <article class="tip-item">
+                    <h3>Emergency Buffer</h3>
+                    <p>Keep 10-15% of your budget as a buffer for unexpected expenses.</p>
+                </article>
+                <article class="tip-item">
+                    <h3>Track Daily</h3>
+                    <p>Log expenses daily to maintain awareness of your spending habits.</p>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (custom component) -->
+    <main-footer></main-footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/js/components/MainNavbar.js"></script>
+    <script type="module" src="src/js/pages/budget.js"></script>
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+/* Remove default margins and paddings for all elements */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set up basic body styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Main container */
+main {
+  width: 100%;
+  max-width: 700px;
+  padding: 2rem 1rem;
+  flex: 1;
+}
+
+/* Back button style */
+.back-btn {
+  background: none;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+/* Back button hover and focus effect */
+.back-btn:hover,
+.back-btn:focus {
+  background: #f1f1f1;
+  border-color: #999;
+  outline: 2px solid #0066cc;
+  outline-offset: 1px;
+}
+
+/* Center text alignment */
+.center {
+  text-align: center;
+}
+
+/* Heading styles */
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: #222;
+}
+
+/* Subtitle under heading */
+.subtitle {
+  color: #555;
+  margin-bottom: 1.8rem;
+  font-size: 1rem;
+}
+
+/* Form box styling */
+.form-box {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+/* Form box headings */
+.form-box h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: #222;
+}
+
+/* Form box paragraph text */
+.form-box p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Label for form fields */
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Add red star for required fields */
+.required::after {
+  content: " *";
+  color: #e53935;
+}
+
+/* Input, select common style */
+input, select {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 0.3rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+/* Custom dropdown arrow */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23666' d='M0 0l5 6 5-6H0z'/%3E%3C/svg%3E");
+}
+
+/* Focus effect for inputs */
+input:focus, select:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+}
+
+/* Green border for valid fields */
+input.valid, select.valid {
+  border-color: #4caf50;
+}
+
+/* Red border for invalid fields */
+input.invalid, select.invalid {
+  border-color: #e53935;
+}
+
+/* Error message style */
+.error-message {
+  color: #e53935;
+  font-size: 0.85rem;
+  margin: 0.4rem 0 1rem;
+  display: none;
+}
+
+/* Show error message when active */
+.error-message.show {
+  display: block;
+}
+
+/* Button container */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+/* Common button styles */
+button {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  flex: 1;
+  transition: all 0.2s ease;
+}
+
+/* Button hover and focus effects */
+button:hover,
+button:focus {
+  background: #f1f1f1;
+  border-color: #999;
+  outline: 2px solid #0066cc;
+  outline-offset: 1px;
+}
+
+/* Submit button style */
+button[type="submit"] {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+}
+
+/* Submit button hover/focus */
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: #000;
+  border-color: #000;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-box { border-color: #000; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); }
+  input, select { border-width: 2px; }
+  button { border-width: 2px; }
+  input.valid, select.valid { border-color: #006400; }
+  input.invalid, select.invalid { border-color: #8b0000; }
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* Responsive layout for tablets */
+@media (max-width: 768px) {
+  .form-box { padding: 1.5rem; }
+  h2 { font-size: 1.6rem; }
+  .button-group { flex-direction: column; }
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 480px) {
+  .form-box { padding: 1.2rem; }
+  h2 { font-size: 1.4rem; }
+}
+
+/* Screen reader only class */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Base form field margin */
+.form-field {
+  margin-bottom: 1.5rem;
+}
