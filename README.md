@@ -44,20 +44,6 @@ finura_mongodb/
 
 ---
 
-## What Changed (Firebase → MongoDB)
-
-| Old (Firebase)                          | New (MongoDB)                         |
-|-----------------------------------------|---------------------------------------|
-| `firebase-config.js`                    | `src/js/api/api.js`                   |
-| `src/js/api/auth.js`                    | `api.js` – `signInWithEmail`, etc.    |
-| `src/js/api/firestore.js`               | `api.js` – REST calls to Express      |
-| Firebase Auth (tokens managed by SDK)   | **JWT** stored in `localStorage`      |
-| Firestore collections                   | **MongoDB** collections via Mongoose  |
-| `onAuthStateChanged()`                  | `isLoggedIn()` / `requireAuth()`      |
-| `Timestamp.toDate()`                    | `toDate(isoString)` helper            |
-| Chart.js via Vite bundler import        | Chart.js via CDN (`window.Chart`)     |
-
----
 
 ## Setup & Run
 
